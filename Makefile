@@ -3,7 +3,7 @@ LINK = -I/usr/local/include -L/usr/local/lib -l:libjsoncpp.so -g
 
 default: todolist
 
-todolist: task.o list.o main.o # add list.o, date.o
+todolist: task.o list.o main.o
 	c++ $(LINK) -o todolist main.o task.o list.o
 
 main.o: main.cpp
