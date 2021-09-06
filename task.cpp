@@ -18,7 +18,7 @@ Task::Task(std::string task, int dateInt, bool finished, bool missed)
 
 bool Task::operator==(Task& task)
 {
-  return this->getDescription() == task.getDescription() && this->getDate() == task.getDate() && this->isFinished() == task.isFinished() && this->isMissed() == task.isMissed();
+  return m_description == task.getDescription();
 }
 
 std::string Task::getDescription()
@@ -44,11 +44,9 @@ bool Task::isMissed()
 void Task::finish()
 {
   m_isFinished = true;
-  m_isMissed = false;
 }
 
 void Task::miss()
 {
-  m_isFinished = false;
   m_isMissed = true;
 }

@@ -93,7 +93,7 @@ void TodoList::display(std::string& option)
       std::cout << "\n";
     }
   }
-  if (option == "completed")
+  else if (option == "completed")
   {
     for (int i = 0; i < m_saveList.size(); i++)
     {

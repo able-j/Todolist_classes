@@ -1,5 +1,5 @@
-CFLAGS = -c -I/usr/local/include -g
-LINK = -I/usr/local/include -L/usr/local/lib -l:libjsoncpp.so -g
+CFLAGS = -c -I/usr/local/include -O2
+LINK = -I/usr/local/include -L. -l:libjsoncpp.so -O2
 
 default: todolist
 

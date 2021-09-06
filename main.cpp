@@ -20,7 +20,7 @@ void getInput(int& month, int& day, int& year, std::string& description, bool op
   {
     std::cout << "\n\n\n";
 
-    std::cout << "Enter the Task to delete: ";
+    std::cout << "Enter the Task to mark as completed/delete: ";
     std::getline(std::cin >> std::ws, description);
   }
 }
@@ -40,7 +40,7 @@ int main()
 
   while (true)
   {
-    list.missed();
+	   list.missed();
 
     std::cout << "\n\n\n\t\t\t\t\tPlease select an option.\n";
     std::cout << "1)   Add new task" << "\n";
