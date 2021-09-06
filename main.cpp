@@ -80,7 +80,8 @@ int main()
       std::string taskType;
 
       std::cout << "Which tasks would you like to display? [all, completed, missed]  ";
-      std::cin >> taskType;
+      std::cin.ignore();
+      taskType = std::cin.get();
 
       list.display(taskType);
     }

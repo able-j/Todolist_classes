@@ -74,24 +74,23 @@ void TodoList::display(std::string& option)
 
   std::cout << "\n";
 
-  if (option == "all")
+  if (option == "missed")
   {
     for (int i = 0; i < m_saveList.size(); i++)
     {
-      std::cout << "Due Date: ";
-
-      for (int j = 0; j < 3; j++)
+      if (m_saveList.at(i).isMissed())
       {
-        std::cout << *(splitDate(m_saveList.at(i).getDate()) + j) << " ";
+        std::cout << "Due Date: ";
+
+        for (int j = 0; j < 3; j++)
+        {
+          std::cout << *(splitDate(m_saveList.at(i).getDate()) + j) << " ";
+        }
+        std::cout << "\nTask description: " << m_saveList.at(i).getDescription() << "\n";
+        std::string finished = (m_saveList.at(i).isFinished()) ? "Finished Task\n" : "Not Finished\n";
+        std::cout << finished;
+        std::cout << "Late";
       }
-      std::cout << "\nTask description: " << m_saveList.at(i).getDescription() << "\n";
-
-      std::string finished = (m_saveList.at(i).isFinished()) ? "Finished Task\n" : "Not Finished\n";
-      std::string late = (m_saveList.at(i).isMissed()) ? "Late\n" : "Not late\n";
-
-      std::cout << finished;
-      std::cout << late;
-      std::cout << "\n";
     }
   }
   else if (option == "completed")
@@ -117,19 +116,20 @@ void TodoList::display(std::string& option)
   {
     for (int i = 0; i < m_saveList.size(); i++)
     {
-      if (m_saveList.at(i).isMissed())
-      {
-        std::cout << "Due Date: ";
+      std::cout << "Due Date: ";
 
-        for (int j = 0; j < 3; j++)
-        {
-          std::cout << *(splitDate(m_saveList.at(i).getDate()) + j) << " ";
-        }
-        std::cout << "\nTask description: " << m_saveList.at(i).getDescription() << "\n";
-        std::string finished = (m_saveList.at(i).isFinished()) ? "Finished Task\n" : "Not Finished\n";
-        std::cout << finished;
-        std::cout << "Late";
+      for (int j = 0; j < 3; j++)
+      {
+        std::cout << *(splitDate(m_saveList.at(i).getDate()) + j) << " ";
       }
+      std::cout << "\nTask description: " << m_saveList.at(i).getDescription() << "\n";
+
+      std::string finished = (m_saveList.at(i).isFinished()) ? "Finished Task\n" : "Not Finished\n";
+      std::string late = (m_saveList.at(i).isMissed()) ? "Late\n" : "Not late\n";
+
+      std::cout << finished;
+      std::cout << late;
+      std::cout << "\n";
     }
   }
 }
