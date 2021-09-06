@@ -3,8 +3,8 @@ LINK = -I/usr/local/include -L. -l:libjsoncpp.so -O2
 
 default: todolist
 
-todolist: task.o list.o main.o
-	c++ $(LINK) -o todolist main.o task.o list.o
+todolist: task.o list.o main.o jsoncpp.o
+	c++ $(LINK) -o todolist main.o task.o list.o jsoncpp.o
 
 main.o: main.cpp
 	c++ $(CFLAGS) -o main.o main.cpp
@@ -14,6 +14,9 @@ list.o:
 
 task.o:
 	c++ $(CFLAGS) -o task.o task.cpp
+
+jsoncpp.o:
+	g++ $(CFLAGS) -o jsoncpp.o jsoncpp.cpp
 
 clean:
 	rm -rf todolist *.o
